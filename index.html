@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBM Bob Links</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+            background: linear-gradient(135deg, #001d6c 0%, #0043ce 50%, #0f62fe 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 520px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+            font-weight: 600;
+            color: #0f62fe;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        /* Category Section */
+        .category {
+            margin-bottom: 28px;
+        }
+
+        .category-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            margin-bottom: 12px;
+            padding-left: 4px;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .link-item {
+            display: block;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 16px 20px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .link-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .link-item .title {
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        .link-item .desc {
+            font-size: 0.75rem;
+            opacity: 0.65;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        footer {
+            margin-top: 32px;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">B</div>
+            <h1>IBM Bob Links</h1>
+            <p class="tagline">Your AI-Powered Development Partner</p>
+        </header>
+
+        <!-- Official Announcement -->
+        <section class="category">
+            <h2 class="category-title">📢 Official Announcement</h2>
+            <div class="links">
+                <a href="https://www.ibm.com/products/bob" class="link-item" target="_blank" rel="noopener">
+                    <span class="title">IBM Project Bob</span>
+                    <span class="desc">Official product page</span>
+                </a>
+                <a href="https://www.ibm.com/new/announcements/ibm-project-bob" class="link-item" target="_blank" rel="noopener">
+                    <span class="title">Announcing IBM Project Bob</span>
+                    <span class="desc">Your AI partner for faster, smarter software development</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Article -->
+        <section class="category">
+            <h2 class="category-title">📝 Article</h2>
+            <div class="links">
+                <a href="https://www.ibm.com/think/news/meet-bob-developer-productivity" class="link-item" target="_blank" rel="noopener">
+                    <span class="title">Meet Bob</span>
+                    <span class="desc">A productivity tool that helps developers scale for enterprise</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Tutorial -->
+        <section class="category">
+            <h2 class="category-title">🎓 Tutorial</h2>
+            <div class="links">
+                <!-- Add tutorial links here -->
+                <a href="#" class="link-item" style="opacity: 0.5; pointer-events: none;">
+                    <span class="title">Coming soon...</span>
+                    <span class="desc">Tutorials will be added here</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 3rd-party Articles -->
+        <section class="category">
+            <h2 class="category-title">🔗 3rd-party Articles</h2>
+            <div class="links">
+                <a href="https://www.itjungle.com/2025/12/08/guru-a-first-look-at-bob-the-ibm-i-assistant-thats-closer-than-you-think/" class="link-item" target="_blank" rel="noopener">
+                    <span class="title">A First Look at Bob</span>
+                    <span class="desc">IT Jungle - The IBM i Assistant That's Closer Than You Think</span>
+                </a>
+                <a href="https://freschesolutions.com/resource/where-project-bob-fits-in-your-ibm-i-modernization-strategy/" class="link-item" target="_blank" rel="noopener">
+                    <span class="title">Where Project Bob Fits</span>
+                    <span class="desc">Fresche Solutions - IBM i Modernization Strategy</span>
+                </a>
+                <a href="https://www.nicklitten.com/what-is-bob-for-ibm-i/" class="link-item" target="_blank" rel="noopener">
+                    <span class="title">What Is BOB For IBM i?</span>
+                    <span class="desc">Nick Litten - IBM i Software Developer Blog</span>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>Curated by <a href="https://github.com/ayatokura" target="_blank">@ayatokura</a></p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,237 +1,41 @@
----
----
-
-@import "{{ site.theme }}";
-
-/* IBM Bob Theme - IBM Blue Color Palette */
-:root {
-  --ibm-blue-10: #edf5ff;
-  --ibm-blue-20: #d0e2ff;
-  --ibm-blue-30: #a6c8ff;
-  --ibm-blue-40: #78a9ff;
-  --ibm-blue-50: #4589ff;
-  --ibm-blue-60: #0f62fe;
-  --ibm-blue-70: #0043ce;
-  --ibm-blue-80: #002d9c;
-  --ibm-blue-90: #001d6c;
-  --ibm-blue-100: #001141;
+/* IBM Bob風の青色テーマ */
+body {
+  background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+  /* または単色の場合 */
+  background-color: #5B9BD5; /* IBM Bob風の明るい青 */
+  color: #ffffff; /* 白いテキスト */
 }
 
-/* Header Styling - IBM Bob Blue */
-.page-header {
-  background: linear-gradient(135deg, var(--ibm-blue-60) 0%, var(--ibm-blue-80) 100%);
-  padding: 3rem 1rem;
-}
-
-.project-name {
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 2.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.project-tagline {
-  color: var(--ibm-blue-10);
-  font-weight: 400;
-  opacity: 0.95;
-}
-
-/* Button Styling */
-.btn {
-  background-color: var(--ibm-blue-60);
-  border: 2px solid var(--ibm-blue-40);
-  color: #ffffff;
-  transition: all 0.3s ease;
-}
-
-.btn:hover {
-  background-color: var(--ibm-blue-70);
-  border-color: var(--ibm-blue-50);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(15, 98, 254, 0.3);
-}
-
-/* Main Content Styling */
+/* コンテンツエリア */
 .main-content {
-  max-width: 64rem;
-  padding: 2rem 4rem;
-  margin: 0 auto;
-  font-size: 1.1rem;
-  line-height: 1.6;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #333333;
+  border-radius: 8px;
+  padding: 20px;
 }
 
-.main-content h1,
-.main-content h2,
-.main-content h3,
-.main-content h4,
-.main-content h5,
-.main-content h6 {
-  color: var(--ibm-blue-80);
-  font-weight: 600;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-
-.main-content h1 {
-  border-bottom: 3px solid var(--ibm-blue-60);
-  padding-bottom: 0.5rem;
-}
-
-.main-content h2 {
-  border-bottom: 2px solid var(--ibm-blue-40);
-  padding-bottom: 0.4rem;
-}
-
-/* Link Styling - IBM Bob Theme */
-.main-content a {
-  color: var(--ibm-blue-60);
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  transition: all 0.2s ease;
-  font-weight: 500;
-}
-
-.main-content a:hover {
-  color: var(--ibm-blue-70);
-  border-bottom-color: var(--ibm-blue-60);
-}
-
-/* List Styling */
-.main-content ul,
-.main-content ol {
-  padding-left: 2rem;
-}
-
-.main-content li {
-  margin-bottom: 0.5rem;
-}
-
-.main-content ul li::marker {
-  color: var(--ibm-blue-60);
-  font-weight: bold;
-}
-
-/* Code Block Styling */
-.main-content code {
-  background-color: var(--ibm-blue-10);
-  border: 1px solid var(--ibm-blue-30);
-  color: var(--ibm-blue-90);
-  padding: 0.2rem 0.4rem;
-  border-radius: 3px;
-  font-family: 'IBM Plex Mono', 'Courier New', monospace;
-}
-
-.main-content pre {
-  background-color: var(--ibm-blue-10);
-  border: 1px solid var(--ibm-blue-30);
-  border-radius: 4px;
-  padding: 1rem;
-}
-
-.main-content pre code {
-  background-color: transparent;
-  border: none;
-  padding: 0;
-}
-
-/* Blockquote Styling */
-.main-content blockquote {
-  border-left: 4px solid var(--ibm-blue-60);
-  background-color: var(--ibm-blue-10);
-  padding: 1rem 1.5rem;
-  margin: 1.5rem 0;
-  color: var(--ibm-blue-90);
-}
-
-/* Table Styling */
-.main-content table {
-  border-collapse: collapse;
-  width: 100%;
-  margin: 1.5rem 0;
-}
-
-.main-content table th {
-  background-color: var(--ibm-blue-60);
+/* ヘッダー */
+header {
+  background-color: #357ABD; /* 濃いめの青 */
   color: #ffffff;
-  padding: 0.75rem;
-  text-align: left;
-  font-weight: 600;
 }
 
-.main-content table td {
-  border: 1px solid var(--ibm-blue-30);
-  padding: 0.75rem;
+/* リンク */
+a {
+  color: #2E86C1; /* IBM Bob風の青 */
 }
 
-.main-content table tr:nth-child(even) {
-  background-color: var(--ibm-blue-10);
+a:hover {
+  color: #1A5490; /* ホバー時は濃く */
 }
 
-.main-content table tr:hover {
-  background-color: var(--ibm-blue-20);
+/* 見出し */
+h1, h2, h3 {
+  color: #2E86C1;
 }
 
-/* Footer Styling */
-.site-footer {
-  border-top: 3px solid var(--ibm-blue-60);
-  background-color: var(--ibm-blue-10);
-  padding: 2rem 0;
+/* アクセントカラー */
+.highlight {
+  background-color: #AED6F1; /* 薄い青 */
+  border-left: 4px solid #3498DB;
 }
-
-.site-footer-owner,
-.site-footer-credits {
-  color: var(--ibm-blue-80);
-}
-
-/* Responsive Design */
-@media screen and (max-width: 64em) {
-  .main-content {
-    padding: 2rem 2rem;
-    font-size: 1rem;
-  }
-  
-  .project-name {
-    font-size: 2rem;
-  }
-}
-
-@media screen and (max-width: 42em) {
-  .main-content {
-    padding: 2rem 1rem;
-    font-size: 0.95rem;
-  }
-  
-  .project-name {
-    font-size: 1.75rem;
-  }
-}
-
-/* IBM Bob Branding Elements */
-.ibm-bob-badge {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--ibm-blue-60), var(--ibm-blue-70));
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-weight: 600;
-  margin: 0.5rem 0;
-  box-shadow: 0 2px 4px rgba(0, 67, 206, 0.3);
-}
-
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Selection Color */
-::selection {
-  background-color: var(--ibm-blue-40);
-  color: white;
-}
-
-::-moz-selection {
-  background-color: var(--ibm-blue-40);
-  color: white;
-}
-
-// Made with Bob

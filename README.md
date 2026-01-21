@@ -2,12 +2,12 @@
 
 <div align="center">
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-success)](https://ayatokura.github.io/IBMBob/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-success)](https://ayatokura.github.io/ibmbob-links/)
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
 
 **IBM Bobに関するリソース、記事、チュートリアルを一箇所にまとめた非公式のコレクション**
 
-[🌐 サイトを見る](https://ayatokura.github.io/IBMBob/) | [📖 使い方](#-使い方) | [🤝 貢献](#-貢献)
+[🌐 サイトを見る](https://ayatokura.github.io/ibmbob-links/) | [📖 使い方](#-使い方) | [🤝 貢献](#-貢献)
 
 </div>
 
@@ -33,7 +33,7 @@ IBM Bob Linksは、AI駆動の開発パートナー「IBM Bob」に関する情�
 
 ### サイトにアクセス
 
-**https://ayatokura.github.io/IBMBob/**
+**https://ayatokura.github.io/ibmbob-links/**
 
 ブラウザで上記URLを開くだけで、すぐに利用できます。
 
@@ -90,7 +90,7 @@ IBM Bob Linksは、AI駆動の開発パートナー「IBM Bob」に関する情�
 
 ```bash
 # リポジトリをクローン
-git clone https://github.com/ayatokura/IBMBob.git
+git clone https://github.com/ayatokura/ibmbob-links.git
 cd IBMBob
 
 # 簡易サーバーを起動
@@ -115,7 +115,7 @@ open http://localhost:8000
 
 ### 🌐 公開サイト
 
-**URL**: https://ayatokura.github.io/IBMBob/
+**URL**: https://ayatokura.github.io/ibmbob-links/
 
 ### 📦 デプロイ方法
 
@@ -125,7 +125,7 @@ open http://localhost:8000
 
 ```bash
 # リポジトリをクローン（初回のみ）
-git clone https://github.com/ayatokura/IBMBob.git
+git clone https://github.com/ayatokura/ibmbob-links.git
 cd IBMBob
 
 # 変更をコミット＆プッシュ
@@ -188,7 +188,7 @@ Qiita API v2の制限：
 
 ### 貢献方法
 
-1. **記事の追加提案**: [Issue](https://github.com/ayatokura/IBMBob/issues)で提案
+1. **記事の追加提案**: [Issue](https://github.com/ayatokura/ibmbob-links/issues)で提案
 2. **バグ報告**: 問題を発見した場合はIssueで報告
 3. **機能提案**: 新機能のアイデアをIssueで共有
 4. **プルリクエスト**: コードの改善や新機能の実装
@@ -220,7 +220,7 @@ git push origin feature/your-feature
 ### 問題を報告
 
 バグや問題を発見した場合：
-1. [GitHub Issues](https://github.com/ayatokura/IBMBob/issues)で報告
+1. [GitHub Issues](https://github.com/ayatokura/ibmbob-links/issues)で報告
 2. 問題の詳細とスクリーンショットを添付
 3. 再現手順を記載
 
@@ -229,7 +229,7 @@ git push origin feature/your-feature
 ### 機能リクエスト
 
 新機能のアイデアがある場合：
-1. [GitHub Issues](https://github.com/ayatokura/IBMBob/issues)で提案
+1. [GitHub Issues](https://github.com/ayatokura/ibmbob-links/issues)で提案
 2. 「Feature Request」ラベルを付ける
 3. 具体的なユースケースを説明
 
@@ -253,7 +253,7 @@ git push origin feature/your-feature
 
 ### コミュニティ
 
-- [GitHub リポジトリ](https://github.com/ayatokura/IBMBob)
+- [GitHub リポジトリ](https://github.com/ayatokura/ibmbob-links)
 - [Qiita: IBM Bob タグ](https://qiita.com/tags/ibmbob)
 
 ## ⚠️ 免責事項
@@ -267,7 +267,7 @@ git push origin feature/your-feature
 ## 👥 クレジット
 
 - **メンテナー**: [Aya Tokura](https://github.com/ayatokura)
-- **コントリビューター**: [貢献者一覧](https://github.com/ayatokura/IBMBob/graphs/contributors)
+- **コントリビューター**: [貢献者一覧](https://github.com/ayatokura/ibmbob-links/graphs/contributors)
 - **データソース**: [Qiita API](https://qiita.com/api/v2/docs)
 
 ---

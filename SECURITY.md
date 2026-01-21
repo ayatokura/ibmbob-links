@@ -106,7 +106,7 @@ APIレスポンスの妥当性を検証：
 ### 報告方法
 
 1. **公開Issueは作成しない**（セキュリティリスクのため）
-2. GitHubの[Security Advisories](https://github.com/ayatokura/IBMBob/security/advisories)を使用
+2. GitHubの[Security Advisories](https://github.com/ayatokura/ibmbob-links/security/advisories)を使用
 3. または、リポジトリメンテナーに直接連絡
 
 ### 報告に含める情報
@@ -155,8 +155,8 @@ IBM、IBM Bob、およびその他のIBM製品名は、IBM Corporationの商標�
 
 セキュリティに関する質問や懸念事項がある場合：
 
-- [GitHub Issues](https://github.com/ayatokura/IBMBob/issues)（一般的な質問）
-- [Security Advisories](https://github.com/ayatokura/IBMBob/security/advisories)（セキュリティ問題）
+- [GitHub Issues](https://github.com/ayatokura/ibmbob-links/issues)（一般的な質問）
+- [Security Advisories](https://github.com/ayatokura/ibmbob-links/security/advisories)（セキュリティ問題）
 
 ---
 

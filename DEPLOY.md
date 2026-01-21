@@ -27,14 +27,14 @@ git add .
 git commit -m "Initial commit: IBM Bob Links site"
 
 # リモートリポジトリを追加
-git remote add origin https://github.com/ayatokura/IBMBob.git
+git remote add origin https://github.com/ayatokura/ibmbob-links.git
 git branch -M main
 git push -u origin main
 ```
 
 ### 2. GitHub Pagesの有効化
 
-1. GitHubリポジトリページ（https://github.com/ayatokura/IBMBob）を開く
+1. GitHubリポジトリページ（https://github.com/ayatokura/ibmbob-links）を開く
 2. **Settings**（設定）タブをクリック
 3. 左サイドバーの**Pages**をクリック
 4. **Source**セクションで以下を選択：
@@ -47,7 +47,7 @@ git push -u origin main
 数分後（通常1-5分）、以下のURLでサイトが公開されます：
 
 ```
-https://ayatokura.github.io/IBMBob/
+https://ayatokura.github.io/ibmbob-links/
 ```
 
 デプロイ状況は以下で確認できます：
@@ -222,7 +222,7 @@ npx http-server -p 8000
 
 問題が解決しない場合：
 
-1. [GitHubのIssue](https://github.com/ayatokura/IBMBob/issues)を作成
+1. [GitHubのIssue](https://github.com/ayatokura/ibmbob-links/issues)を作成
 2. エラーメッセージとスクリーンショットを添付
 3. 実行した手順を詳しく記載
 

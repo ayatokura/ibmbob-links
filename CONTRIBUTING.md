@@ -196,7 +196,7 @@ Closes #[Issue番号]
 
 ```bash
 # リポジトリをクローン
-git clone https://github.com/ayatokura/IBMBob.git
+git clone https://github.com/ayatokura/ibmbob-links.git
 cd IBMBob
 
 # ローカルサーバーを起動（オプション）
@@ -224,7 +224,7 @@ open http://localhost:8000
 セキュリティ上の問題を発見した場合：
 
 1. **公開Issueは作成しない**
-2. [Security Advisories](https://github.com/ayatokura/IBMBob/security/advisories)を使用
+2. [Security Advisories](https://github.com/ayatokura/ibmbob-links/security/advisories)を使用
 3. または、リポジトリメンテナーに直接連絡
 
 詳細は [SECURITY.md](SECURITY.md) を参照してください。
@@ -241,7 +241,7 @@ open http://localhost:8000
 
 質問がある場合：
 
-1. [既存のIssue](https://github.com/ayatokura/IBMBob/issues)を検索
+1. [既存のIssue](https://github.com/ayatokura/ibmbob-links/issues)を検索
 2. [ドキュメント](README.md)を確認
 3. 新しいIssueを作成（返信は保証されません）
 

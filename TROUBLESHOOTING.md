@@ -6,7 +6,7 @@
 
 - ✅ ファイルはGitHubにプッシュ済み
 - ✅ `.nojekyll`、`index.html`、GitHub Actionsワークフローが存在
-- ❌ https://ayatokura.github.io/IBMBob/ で404エラー
+- ❌ https://ayatokura.github.io/ibmbob-links/ で404エラー
 
 ## 🔧 解決手順
 
@@ -14,7 +14,7 @@
 
 1. **GitHubリポジトリにアクセス**
    ```
-   https://github.com/ayatokura/IBMBob
+   https://github.com/ayatokura/ibmbob-links
    ```
 
 2. **Settings タブをクリック**
@@ -32,7 +32,7 @@
    
 2. **Actions タブに移動**
    ```
-   https://github.com/ayatokura/IBMBob/actions
+   https://github.com/ayatokura/ibmbob-links/actions
    ```
 
 3. **ワークフローの状態を確認**
@@ -67,7 +67,7 @@
 
 1. **Actions タブを開く**
    ```
-   https://github.com/ayatokura/IBMBob/actions
+   https://github.com/ayatokura/ibmbob-links/actions
    ```
 
 2. **最新のワークフロー実行をクリック**
@@ -89,7 +89,7 @@
 
 1. **ブラウザで開く**
    ```
-   https://ayatokura.github.io/IBMBob/
+   https://ayatokura.github.io/ibmbob-links/
    ```
 
 2. **キャッシュをクリア**
@@ -187,7 +187,7 @@ GitHub Actionsを使わず、ブランチから直接デプロイ：
 
 以下の情報を含めて報告：
 
-1. **リポジトリURL**: https://github.com/ayatokura/IBMBob
+1. **リポジトリURL**: https://github.com/ayatokura/ibmbob-links
 2. **エラーメッセージ**: スクリーンショット
 3. **Actions ログ**: エラーがあれば全文
 4. **試した手順**: 上記のどの手順を試したか

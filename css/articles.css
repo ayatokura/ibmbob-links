@@ -15,27 +15,28 @@
     align-items: center;
     margin-bottom: 20px;
     padding: 16px 20px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: #ffffff;
+    border: 1px solid #e1e8ed;
     border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .articles-info h3 {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 4px;
+    color: #2c3e50;
 }
 
 .cache-info {
     font-size: 0.75rem;
-    opacity: 0.7;
+    color: #7a8a9a;
 }
 
 .refresh-articles-btn {
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #fff;
+    background: #0f62fe;
+    border: 1px solid #0f62fe;
+    color: #ffffff;
     padding: 8px 16px;
     border-radius: 8px;
     font-size: 0.85rem;
@@ -46,8 +47,10 @@
 }
 
 .refresh-articles-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: #0043ce;
+    border-color: #0043ce;
     transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(15, 98, 254, 0.3);
 }
 
 .refresh-articles-btn:active {
@@ -62,9 +65,8 @@
 
 /* 記事カード */
 .article-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: #ffffff;
+    border: 1px solid #e1e8ed;
     border-radius: 12px;
     padding: 20px;
     transition: all 0.2s ease;
@@ -72,20 +74,22 @@
     flex-direction: column;
     gap: 12px;
     position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .article-card:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: #f8fafc;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #0f62fe;
 }
 
 /* 高関連度の記事を強調 */
 .article-card[data-relevance="10"],
 .article-card[data-relevance="9"],
 .article-card[data-relevance="8"] {
-    border: 2px solid rgba(255, 215, 0, 0.5);
-    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid #fbbf24;
+    background: #fffbeb;
 }
 
 /* 記事ヘッダー */
@@ -109,15 +113,15 @@
 }
 
 .relevance-badge.high {
-    background: rgba(255, 215, 0, 0.2);
-    border: 1px solid rgba(255, 215, 0, 0.4);
-    color: #ffd700;
+    background: #fef3c7;
+    border: 1px solid #fbbf24;
+    color: #92400e;
 }
 
 .relevance-badge.medium {
-    background: rgba(135, 206, 250, 0.2);
-    border: 1px solid rgba(135, 206, 250, 0.4);
-    color: #87ceeb;
+    background: #dbeafe;
+    border: 1px solid #60a5fa;
+    color: #1e40af;
 }
 
 /* 記事タイトル */
@@ -129,13 +133,13 @@
 }
 
 .article-title a {
-    color: #fff;
+    color: #2c3e50;
     text-decoration: none;
-    transition: opacity 0.2s ease;
+    transition: color 0.2s ease;
 }
 
 .article-title a:hover {
-    opacity: 0.8;
+    color: #0f62fe;
 }
 
 /* 記事メタ情報 */
@@ -157,26 +161,25 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid #e1e8ed;
 }
 
 .author-name {
     font-size: 0.8rem;
-    color: #fff;
+    color: #5a6c7d;
     text-decoration: none;
-    opacity: 0.85;
-    transition: opacity 0.2s ease;
+    transition: color 0.2s ease;
 }
 
 .author-name:hover {
-    opacity: 1;
+    color: #0f62fe;
 }
 
 .article-stats {
     display: flex;
     gap: 12px;
     font-size: 0.75rem;
-    opacity: 0.7;
+    color: #7a8a9a;
 }
 
 .stat {
@@ -191,29 +194,30 @@
 }
 
 .tag {
-    background: rgba(255, 255, 255, 0.15);
+    background: #f0f4f8;
     padding: 4px 10px;
     border-radius: 6px;
+    border: 1px solid #e1e8ed;
+    color: #5a6c7d;
     font-size: 0.7rem;
     font-weight: 500;
-    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* 記事を読むリンク */
 .read-more {
     display: inline-flex;
     align-items: center;
-    color: #fff;
+    color: #0f62fe;
     text-decoration: none;
     font-size: 0.85rem;
     font-weight: 500;
-    opacity: 0.85;
-    transition: opacity 0.2s ease;
+    transition: color 0.2s ease;
     margin-top: 4px;
 }
 
 .read-more:hover {
-    opacity: 1;
+    color: #0043ce;
+    text-decoration: underline;
 }
 
 /* ローディング状態 */
@@ -226,8 +230,8 @@
     width: 40px;
     height: 40px;
     margin: 0 auto 16px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-top-color: #fff;
+    border: 3px solid #e1e8ed;
+    border-top-color: #0f62fe;
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
 }
@@ -238,7 +242,7 @@
 
 .loading-state p {
     font-size: 0.9rem;
-    opacity: 0.85;
+    color: #5a6c7d;
 }
 
 /* エラー状態 */
@@ -250,13 +254,13 @@
 .error-state p {
     font-size: 0.9rem;
     margin-bottom: 16px;
-    opacity: 0.85;
+    color: #dc2626;
 }
 
 .retry-button {
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #fff;
+    background: #0f62fe;
+    border: 1px solid #0f62fe;
+    color: #ffffff;
     padding: 10px 24px;
     border-radius: 8px;
     font-size: 0.85rem;
@@ -267,8 +271,10 @@
 }
 
 .retry-button:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: #0043ce;
+    border-color: #0043ce;
     transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(15, 98, 254, 0.3);
 }
 
 /* 空状態 */
@@ -279,15 +285,15 @@
 
 .empty-state p {
     font-size: 0.9rem;
-    opacity: 0.85;
+    color: #5a6c7d;
     margin-bottom: 8px;
 }
 
 /* 成功メッセージ */
 .success-message {
-    background: rgba(46, 204, 113, 0.2);
-    border: 1px solid rgba(46, 204, 113, 0.4);
-    color: #fff;
+    background: #d1fae5;
+    border: 1px solid #10b981;
+    color: #065f46;
     padding: 12px 20px;
     border-radius: 8px;
     margin-bottom: 16px;

@@ -18,7 +18,7 @@
 
         body {
             font-family: 'IBM Plex Sans', -apple-system, sans-serif;
-            background: linear-gradient(135deg, #e8f5f7 0%, #f0f9fa 50%, #f8fcfd 100%);
+            background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f7 50%, #f5f8fb 100%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -39,10 +39,8 @@
             padding: 60px 40px;
             border-radius: 16px;
             overflow: hidden;
-            background: linear-gradient(135deg, rgba(15, 98, 254, 0.05) 0%, rgba(85, 184, 72, 0.05) 100%);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-            border: 2px solid transparent;
-            background-clip: padding-box;
+            background: linear-gradient(135deg, #0f62fe 0%, #0043ce 100%);
+            box-shadow: 0 8px 24px rgba(15, 98, 254, 0.25);
         }
 
         header::before {
@@ -55,20 +53,9 @@
             background-image: url('VibeCodingImage.jpg');
             background-size: cover;
             background-position: center;
-            opacity: 0.08;
+            opacity: 0.12;
             z-index: 0;
-        }
-
-        header::after {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(135deg, #0f62fe 0%, #55b848 100%);
-            border-radius: 16px;
-            z-index: -1;
+            mix-blend-mode: overlay;
         }
 
         header > * {
@@ -87,28 +74,27 @@
             font-size: 1.75rem;
             font-weight: 600;
             margin-bottom: 8px;
-            background: linear-gradient(135deg, #0f62fe 0%, #55b848 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #ffffff;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
         .tagline {
             font-size: 0.95rem;
-            color: #4a5568;
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 12px;
         }
 
         .disclaimer {
             font-size: 0.75rem;
-            color: #7a8a9a;
+            color: rgba(255, 255, 255, 0.85);
             font-weight: 400;
             margin-top: 8px;
             padding: 8px 16px;
-            background: #f0f4f8;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
             border-radius: 6px;
             display: inline-block;
-            border: 1px solid #e1e8ed;
+            border: 1px solid rgba(255, 255, 255, 0.25);
         }
 
         /* Category Section */
@@ -121,7 +107,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #7a8a9a;
+            color: #0f62fe;
             margin-bottom: 12px;
             padding-left: 4px;
         }
@@ -154,7 +140,7 @@
             top: 0;
             bottom: 0;
             width: 3px;
-            background: linear-gradient(180deg, #0f62fe 0%, #55b848 100%);
+            background: #0f62fe;
             opacity: 0;
             transition: opacity 0.2s ease;
         }

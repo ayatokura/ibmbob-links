@@ -1,0 +1,341 @@
+/**
+ * Articles Styles
+ * Qiita記事表示用のスタイル
+ */
+
+/* 記事セクション全体 */
+#qiita-articles {
+    margin-top: 20px;
+}
+
+/* ヘッダー */
+.articles-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+}
+
+.articles-info h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.cache-info {
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+.refresh-articles-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.refresh-articles-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+.refresh-articles-btn:active {
+    transform: translateY(0);
+}
+
+/* 記事グリッド */
+.articles-grid {
+    display: grid;
+    gap: 16px;
+}
+
+/* 記事カード */
+.article-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+}
+
+.article-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* 高関連度の記事を強調 */
+.article-card[data-relevance="10"],
+.article-card[data-relevance="9"],
+.article-card[data-relevance="8"] {
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* 記事ヘッダー */
+.article-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* 関連度バッジ */
+.relevance-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    width: fit-content;
+    margin-bottom: 4px;
+}
+
+.relevance-badge.high {
+    background: rgba(255, 215, 0, 0.2);
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    color: #ffd700;
+}
+
+.relevance-badge.medium {
+    background: rgba(135, 206, 250, 0.2);
+    border: 1px solid rgba(135, 206, 250, 0.4);
+    color: #87ceeb;
+}
+
+/* 記事タイトル */
+.article-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.article-title a {
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.article-title a:hover {
+    opacity: 0.8;
+}
+
+/* 記事メタ情報 */
+.article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.author-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.author-name {
+    font-size: 0.8rem;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+}
+
+.author-name:hover {
+    opacity: 1;
+}
+
+.article-stats {
+    display: flex;
+    gap: 12px;
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+.stat {
+    white-space: nowrap;
+}
+
+/* タグ */
+.article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 記事を読むリンク */
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+    margin-top: 4px;
+}
+
+.read-more:hover {
+    opacity: 1;
+}
+
+/* ローディング状態 */
+.loading-state {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 16px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-state p {
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+/* エラー状態 */
+.error-state {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.error-state p {
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+    opacity: 0.85;
+}
+
+.retry-button {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.retry-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+/* 空状態 */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.empty-state p {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    margin-bottom: 8px;
+}
+
+/* 成功メッセージ */
+.success-message {
+    background: rgba(46, 204, 113, 0.2);
+    border: 1px solid rgba(46, 204, 113, 0.4);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 767px) {
+    .articles-header {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .refresh-articles-btn {
+        width: 100%;
+    }
+
+    .article-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .article-stats {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .articles-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+/* アクセシビリティ */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ダークモード対応（将来の拡張用） */
+@media (prefers-color-scheme: dark) {
+    /* 既にダークテーマなので追加の調整は不要 */
+}
+
+/* Made with Bob */

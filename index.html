@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IBM Bob Links</title>
+    <meta name="description" content="IBM Bobに関するリソース、記事、チュートリアルのまとめ">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/articles.css">
     <style>
         * {
             margin: 0;
@@ -26,28 +28,46 @@
         }
 
         .container {
-            max-width: 520px;
+            max-width: 900px;
             width: 100%;
         }
 
         header {
             text-align: center;
             margin-bottom: 40px;
+            position: relative;
+            padding: 60px 40px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(0, 29, 108, 0.95) 0%, rgba(0, 67, 206, 0.9) 50%, rgba(15, 98, 254, 0.85) 100%);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .logo {
-            width: 80px;
-            height: 80px;
-            background: #fff;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 36px;
-            font-weight: 600;
-            color: #0f62fe;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('VibeCodingImage.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        header > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 767px) {
+            header {
+                padding: 40px 20px;
+                border-radius: 12px;
+            }
         }
 
         h1 {
@@ -59,6 +79,18 @@
         .tagline {
             font-size: 0.95rem;
             opacity: 0.85;
+            margin-bottom: 12px;
+        }
+
+        .disclaimer {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            font-weight: 400;
+            margin-top: 8px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            display: inline-block;
         }
 
         /* Category Section */
@@ -133,9 +165,9 @@
 <body>
     <div class="container">
         <header>
-            <div class="logo">B</div>
             <h1>IBM Bob Links</h1>
             <p class="tagline">Your AI-Powered Development Partner / AI駆動の開発パートナー</p>
+            <p class="disclaimer">⚠️ 非公式のリンク集です / Unofficial Resource Collection</p>
         </header>
 
         <!-- Official Announcement / 公式発表 -->
@@ -176,6 +208,14 @@
             </div>
         </section>
 
+        <!-- Qiita Articles / Qiita記事（自動取得） -->
+        <section class="category">
+            <h2 class="category-title">📰 Qiita Articles / Qiita記事（自動取得）</h2>
+            <div id="qiita-articles">
+                <!-- 記事はJavaScriptで動的に読み込まれます -->
+            </div>
+        </section>
+
         <!-- 3rd-party Articles / サードパーティ記事 -->
         <section class="category">
             <h2 class="category-title">🔗 3rd-party Articles / サードパーティ記事</h2>
@@ -192,5 +232,10 @@
             <p>Curated by <a href="https://github.com/ayatokura" target="_blank">@ayatokura</a></p>
         </footer>
     </div>
+
+    <!-- JavaScript Modules -->
+    <script src="js/qiita-api.js"></script>
+    <script src="js/article-manager.js"></script>
+    <script src="js/ui-controller.js"></script>
 </body>
 </html>

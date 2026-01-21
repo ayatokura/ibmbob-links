@@ -228,4 +228,4 @@ npx http-server -p 8000
 
 ---
 
-Made with ❤️ for the IBM Bob community
+Made with IBM Bob

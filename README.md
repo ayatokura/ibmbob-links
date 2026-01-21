@@ -273,8 +273,8 @@ git push origin feature/your-feature
 ---
 
 <div align="center">
+Made with IBM Bob
 
-Made with ❤️ for the IBM Bob community
 
 [⬆ トップに戻る](#ibm-bob-links)
 

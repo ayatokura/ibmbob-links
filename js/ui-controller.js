@@ -10,6 +10,8 @@ class UIController {
         this.errorElement = null;
         this.refreshButton = null;
         this.isLoading = false;
+        this.allArticles = [];
+        this.searchInput = null;
     }
 
     /**
@@ -23,6 +25,9 @@ class UIController {
             console.error('記事コンテナが見つかりません');
             return;
         }
+
+        // 検索ボックスを取得
+        this.searchInput = document.getElementById('search-input');
 
         // イベントリスナーを設定
         this._setupEventListeners();
@@ -48,6 +53,13 @@ class UIController {
                 this.loadArticles();
             }
         });
+
+        // 検索機能
+        if (this.searchInput) {
+            this.searchInput.addEventListener('input', (e) => {
+                this._handleSearch(e.target.value);
+            });
+        }
     }
 
     /**
@@ -61,6 +73,7 @@ class UIController {
 
         try {
             const articles = await articleManager.getArticles();
+            this.allArticles = articles;
             this._displayArticles(articles);
             this._showCacheInfo();
         } catch (error) {
@@ -82,9 +95,16 @@ class UIController {
 
         try {
             const articles = await articleManager.refreshArticles();
+            this.allArticles = articles;
             this._displayArticles(articles);
             this._showCacheInfo();
             this._showSuccessMessage('記事を更新しました');
+            
+            // 検索ボックスをクリア
+            if (this.searchInput) {
+                this.searchInput.value = '';
+                this._updateSearchResultsCount(articles.length, articles.length);
+            }
         } catch (error) {
             console.error('記事更新エラー:', error);
             this._showError(error.message);
@@ -364,6 +384,158 @@ class UIController {
             allCollapsed = !allCollapsed;
             toggleBtn.textContent = allCollapsed ? '📋 すべて展開' : '📋 すべて折りたたむ';
         });
+    }
+
+    /**
+     * 検索処理
+     * @private
+     */
+    _handleSearch(query) {
+        if (!query.trim()) {
+            // 検索クエリが空の場合、すべての記事を表示
+            this._displayArticles(this.allArticles);
+            return;
+        }
+
+        const searchTerm = query.toLowerCase().trim();
+        
+        // 記事をフィルタリング
+        const filteredArticles = this.allArticles.filter(article => {
+            return (
+                article.title.toLowerCase().includes(searchTerm) ||
+                article.author.toLowerCase().includes(searchTerm) ||
+                article.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+            );
+        });
+
+        if (filteredArticles.length === 0) {
+            // 検索結果がない場合
+            this.articlesContainer.innerHTML = `
+                <div class="articles-header">
+                    <div class="articles-info">
+                        <h3>Qiitaの記事 (0件)</h3>
+                        <p class="cache-info" id="cache-info"></p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="collapse-toggle-btn" id="collapse-toggle" title="すべて折りたたむ/展開" disabled style="opacity: 0.5;">
+                            📋 すべて折りたたむ
+                        </button>
+                        <button class="refresh-articles-btn" title="記事を更新">
+                            🔄 更新
+                        </button>
+                    </div>
+                </div>
+                <div class="no-results">
+                    <p>🔍 「${this._escapeHtml(query)}」に一致する記事が見つかりませんでした</p>
+                    <p>別のキーワードで検索してみてください</p>
+                </div>
+            `;
+            this._showCacheInfo();
+            this._updateSearchResultsCount(0, this.allArticles.length);
+        } else {
+            // 検索結果を表示（ハイライト付き）
+            this._displayArticles(filteredArticles, searchTerm);
+        }
+    }
+
+    /**
+     * 検索結果カウントを更新
+     * @private
+     */
+    _updateSearchResultsCount(displayed, total) {
+        const countElement = document.getElementById('search-results-count');
+        if (!countElement) return;
+
+        if (displayed === total) {
+            countElement.textContent = '';
+        } else {
+            countElement.textContent = `${displayed}件 / ${total}件の記事を表示中`;
+        }
+    }
+
+    /**
+     * 記事カードを作成（検索ハイライト対応）
+     * @private
+     */
+    _createArticleCard(article, searchTerm = '') {
+        const tagsHTML = article.tags
+            .slice(0, 5)
+            .map(tag => {
+                const highlightedTag = searchTerm
+                    ? this._highlightText(tag, searchTerm)
+                    : tag;
+                return `<span class="tag">${highlightedTag}</span>`;
+            })
+            .join('');
+
+        // 関連度バッジを作成
+        const relevanceBadge = this._createRelevanceBadge(article.relevanceScore);
+
+        // タイトルと著者名をハイライト
+        const highlightedTitle = searchTerm
+            ? this._highlightText(article.title, searchTerm)
+            : article.title;
+        const highlightedAuthor = searchTerm
+            ? this._highlightText(article.author, searchTerm)
+            : article.author;
+
+        return `
+            <article class="article-card collapsible" data-relevance="${article.relevanceScore}">
+                <div class="article-card-header" role="button" tabindex="0" aria-expanded="false">
+                    <div class="article-header">
+                        ${relevanceBadge}
+                        <h4 class="article-title">
+                            ${highlightedTitle}
+                        </h4>
+                    </div>
+                    <span class="collapse-icon">▼</span>
+                </div>
+                
+                <div class="article-card-content">
+                    <div class="article-meta">
+                        <div class="author-info">
+                            <img src="${article.authorImage}"
+                                 alt="${article.author}"
+                                 class="author-avatar"
+                                 loading="lazy">
+                            <a href="${article.authorUrl}"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="author-name">
+                                ${highlightedAuthor}
+                            </a>
+                        </div>
+                        <div class="article-stats">
+                            <span class="stat">📅 ${article.publishedDate}</span>
+                            <span class="stat">❤️ ${article.likesCount}</span>
+                        </div>
+                    </div>
+                    
+                    ${tagsHTML ? `<div class="article-tags">${tagsHTML}</div>` : ''}
+                    
+                    <a href="${article.url}"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="read-more">
+                        記事を読む →
+                    </a>
+                </div>
+            </article>
+        `;
+    }
+
+    /**
+     * テキストをハイライト
+     * @private
+     */
+    _highlightText(text, searchTerm) {
+        if (!searchTerm) return this._escapeHtml(text);
+        
+        const escapedText = this._escapeHtml(text);
+        const escapedTerm = this._escapeHtml(searchTerm);
+        const regex = new RegExp(`(${escapedTerm})`, 'gi');
+        
+        return escapedText.replace(regex, '<span class="highlight">$1</span>');
     }
 }
 

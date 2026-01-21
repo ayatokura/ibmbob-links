@@ -168,6 +168,58 @@
             margin-top: 2px;
         }
 
+        /* Search Container */
+        .search-container {
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 20px;
+            font-size: 0.95rem;
+            border: 2px solid #c7e9c0;
+            border-radius: 12px;
+            background: #ffffff;
+            color: #2c3e50;
+            font-family: 'IBM Plex Sans', sans-serif;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(85, 184, 72, 0.1);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #55b848;
+            box-shadow: 0 4px 16px rgba(85, 184, 72, 0.2);
+        }
+
+        .search-input::placeholder {
+            color: #7a8a9a;
+        }
+
+        .search-results-count {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #55b848;
+            font-weight: 500;
+            text-align: center;
+            min-height: 20px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px 20px;
+            color: #7a8a9a;
+            font-size: 0.9rem;
+        }
+
+        .highlight {
+            background: #fef3c7;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
         footer {
             margin-top: 32px;
             text-align: center;
@@ -196,6 +248,12 @@
             <p class="tagline">Your AI-Powered Development Partner / AI駆動の開発パートナー</p>
             <p class="disclaimer">⚠️ 非公式のリンク集です / Unofficial Resource Collection</p>
         </header>
+
+        <!-- Search Box -->
+        <div class="search-container">
+            <input type="text" id="search-input" class="search-input" placeholder="🔍 記事を検索... / Search articles...">
+            <div id="search-results-count" class="search-results-count"></div>
+        </div>
 
         <!-- Official Announcement / 公式発表 -->
         <section class="category">
@@ -240,18 +298,6 @@
             <h2 class="category-title">📰 Qiita Articles / Qiita記事（自動取得）</h2>
             <div id="qiita-articles">
                 <!-- 記事はJavaScriptで動的に読み込まれます -->
-            </div>
-        </section>
-
-        <!-- 3rd-party Articles / サードパーティ記事 -->
-        <section class="category">
-            <h2 class="category-title">🔗 3rd-party Articles / サードパーティ記事</h2>
-            <div class="links">
-                <!-- Add 3rd-party links here / サードパーティリンクをここに追加 -->
-                <a href="#" class="link-item" style="opacity: 0.5; pointer-events: none;">
-                    <span class="title">Coming soon... / 近日公開</span>
-                    <span class="desc">Articles will be added here / 記事がここに追加されます</span>
-                </a>
             </div>
         </section>
 

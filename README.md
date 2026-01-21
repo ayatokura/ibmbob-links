@@ -184,6 +184,8 @@ Qiita API v2の制限：
 
 このプロジェクトへの貢献を歓迎します！
 
+> ⚠️ **注意**: このプロジェクトはコミュニティ主導で運営されており、サポートはベストエフォートベースで提供されます。
+
 ### 貢献方法
 
 1. **記事の追加提案**: [Issue](https://github.com/ayatokura/IBMBob/issues)で提案
@@ -191,7 +193,9 @@ Qiita API v2の制限：
 3. **機能提案**: 新機能のアイデアをIssueで共有
 4. **プルリクエスト**: コードの改善や新機能の実装
 
-### 開発に参加する
+詳細な貢献ガイドラインは [CONTRIBUTING.md](CONTRIBUTING.md) を参照してください。
+
+### クイックスタート
 
 ```bash
 # フォークしてクローン
@@ -203,15 +207,15 @@ git checkout -b feature/your-feature
 
 # 変更をコミット
 git add .
-git commit -m "Add: your feature"
+git commit -m "feat: add your feature"
 
 # プッシュしてPRを作成
 git push origin feature/your-feature
 ```
 
-詳細は [DEPLOY.md](DEPLOY.md) を参照してください。
+## 📞 コミュニティサポート
 
-## 📞 サポート・フィードバック
+> ⚠️ **注意**: このプロジェクトはコミュニティ主導で運営されており、サポートはベストエフォートベースで提供されます。即座の対応や問題解決を保証するものではありません。
 
 ### 問題を報告
 
@@ -220,12 +224,24 @@ git push origin feature/your-feature
 2. 問題の詳細とスクリーンショットを添付
 3. 再現手順を記載
 
+**注**: Issueへの返信は時間がかかる場合があります。緊急の問題については、自己解決を試みるか、コミュニティに質問してください。
+
 ### 機能リクエスト
 
 新機能のアイデアがある場合：
 1. [GitHub Issues](https://github.com/ayatokura/IBMBob/issues)で提案
 2. 「Feature Request」ラベルを付ける
 3. 具体的なユースケースを説明
+
+**注**: すべての機能リクエストが実装されるわけではありません。プルリクエストでの貢献を歓迎します。
+
+### セルフヘルプリソース
+
+問題解決のための参考資料：
+- [TROUBLESHOOTING.md](TROUBLESHOOTING.md) - よくある問題と解決方法
+- [DEPLOY.md](DEPLOY.md) - デプロイ手順
+- [GitHub Pages ドキュメント](https://docs.github.com/ja/pages)
+- [Qiita API ドキュメント](https://qiita.com/api/v2/docs)
 
 ## 🔗 関連リンク
 

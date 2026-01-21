@@ -34,8 +34,8 @@
 }
 
 .refresh-articles-btn {
-    background: #0f62fe;
-    border: 1px solid #0f62fe;
+    background: linear-gradient(135deg, #0f62fe 0%, #55b848 100%);
+    border: none;
     color: #ffffff;
     padding: 8px 16px;
     border-radius: 8px;
@@ -44,13 +44,12 @@
     cursor: pointer;
     transition: all 0.2s ease;
     font-family: 'IBM Plex Sans', sans-serif;
+    box-shadow: 0 2px 8px rgba(15, 98, 254, 0.2);
 }
 
 .refresh-articles-btn:hover {
-    background: #0043ce;
-    border-color: #0043ce;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(15, 98, 254, 0.3);
+    box-shadow: 0 4px 16px rgba(15, 98, 254, 0.4);
 }
 
 .refresh-articles-btn:active {
@@ -77,19 +76,42 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
+.article-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, #0f62fe 0%, #55b848 100%);
+    border-radius: 12px 0 0 12px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
 .article-card:hover {
     background: #f8fafc;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(15, 98, 254, 0.15);
     border-color: #0f62fe;
+}
+
+.article-card:hover::before {
+    opacity: 1;
 }
 
 /* 高関連度の記事を強調 */
 .article-card[data-relevance="10"],
 .article-card[data-relevance="9"],
 .article-card[data-relevance="8"] {
-    border: 2px solid #fbbf24;
-    background: #fffbeb;
+    border: 2px solid #55b848;
+    background: linear-gradient(135deg, rgba(15, 98, 254, 0.02) 0%, rgba(85, 184, 72, 0.02) 100%);
+}
+
+.article-card[data-relevance="10"]::before,
+.article-card[data-relevance="9"]::before,
+.article-card[data-relevance="8"]::before {
+    opacity: 1;
 }
 
 /* 記事ヘッダー */
@@ -113,15 +135,16 @@
 }
 
 .relevance-badge.high {
-    background: #fef3c7;
-    border: 1px solid #fbbf24;
-    color: #92400e;
+    background: linear-gradient(135deg, rgba(15, 98, 254, 0.1) 0%, rgba(85, 184, 72, 0.1) 100%);
+    border: 1px solid #55b848;
+    color: #2d7a1f;
+    font-weight: 600;
 }
 
 .relevance-badge.medium {
-    background: #dbeafe;
-    border: 1px solid #60a5fa;
-    color: #1e40af;
+    background: rgba(15, 98, 254, 0.1);
+    border: 1px solid #0f62fe;
+    color: #0043ce;
 }
 
 /* 記事タイトル */
@@ -135,11 +158,15 @@
 .article-title a {
     color: #2c3e50;
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: all 0.2s ease;
+    background: linear-gradient(135deg, #0f62fe 0%, #55b848 100%);
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
 }
 
 .article-title a:hover {
-    color: #0f62fe;
+    background-size: 100% 2px;
 }
 
 /* 記事メタ情報 */
@@ -172,7 +199,7 @@
 }
 
 .author-name:hover {
-    color: #0f62fe;
+    color: #55b848;
 }
 
 .article-stats {
@@ -207,17 +234,20 @@
 .read-more {
     display: inline-flex;
     align-items: center;
-    color: #0f62fe;
+    background: linear-gradient(135deg, #0f62fe 0%, #55b848 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     text-decoration: none;
     font-size: 0.85rem;
-    font-weight: 500;
-    transition: color 0.2s ease;
+    font-weight: 600;
+    transition: all 0.2s ease;
     margin-top: 4px;
 }
 
 .read-more:hover {
-    color: #0043ce;
     text-decoration: underline;
+    transform: translateX(4px);
 }
 
 /* ローディング状態 */
@@ -258,8 +288,8 @@
 }
 
 .retry-button {
-    background: #0f62fe;
-    border: 1px solid #0f62fe;
+    background: linear-gradient(135deg, #0f62fe 0%, #55b848 100%);
+    border: none;
     color: #ffffff;
     padding: 10px 24px;
     border-radius: 8px;
@@ -268,13 +298,12 @@
     cursor: pointer;
     transition: all 0.2s ease;
     font-family: 'IBM Plex Sans', sans-serif;
+    box-shadow: 0 2px 8px rgba(15, 98, 254, 0.2);
 }
 
 .retry-button:hover {
-    background: #0043ce;
-    border-color: #0043ce;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(15, 98, 254, 0.3);
+    box-shadow: 0 4px 16px rgba(15, 98, 254, 0.4);
 }
 
 /* 空状態 */

@@ -384,6 +384,37 @@
     transition: opacity 0.3s ease;
 }
 
+/* もっと見るボタン */
+.show-more-container {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px 0;
+}
+
+.show-more-btn {
+    background: #0f62fe;
+    border: none;
+    color: #ffffff;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'IBM Plex Sans', sans-serif;
+    box-shadow: 0 2px 8px rgba(15, 98, 254, 0.2);
+}
+
+.show-more-btn:hover {
+    background: #0043ce;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(15, 98, 254, 0.4);
+}
+
+.show-more-btn:active {
+    transform: translateY(0);
+}
+
 /* レスポンシブ対応 */
 @media (max-width: 767px) {
     .articles-header {

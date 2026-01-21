@@ -12,6 +12,8 @@ class UIController {
         this.isLoading = false;
         this.allArticles = [];
         this.searchInput = null;
+        this.showAllArticles = false;
+        this.INITIAL_DISPLAY_COUNT = 6;
     }
 
     /**
@@ -25,6 +27,9 @@ class UIController {
             console.error('記事コンテナが見つかりません');
             return;
         }
+
+        // 検索ボックスを取得
+        this.searchInput = document.getElementById('search-input');
 
         // 検索ボックスを取得
         this.searchInput = document.getElementById('search-input');
@@ -60,6 +65,15 @@ class UIController {
                 this._handleSearch(e.target.value);
             });
         }
+
+        // 「もっと見る」ボタン
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('show-more-btn')) {
+                e.preventDefault();
+                this.showAllArticles = !this.showAllArticles;
+                this._displayArticles(this.allArticles);
+            }
+        });
     }
 
     /**
@@ -96,6 +110,7 @@ class UIController {
         try {
             const articles = await articleManager.refreshArticles();
             this.allArticles = articles;
+            this.showAllArticles = false; // リセット
             this._displayArticles(articles);
             this._showCacheInfo();
             this._showSuccessMessage('記事を更新しました');
@@ -206,6 +221,25 @@ class UIController {
                         🔄 更新
                     </button>
                 </div>
+            </div>
+        `;
+    }
+
+    /**
+     * 「もっと見る」ボタンを作成
+     * @private
+     */
+    _createShowMoreButton(totalCount, displayedCount) {
+        const isShowingAll = displayedCount === totalCount;
+        const buttonText = isShowingAll
+            ? `📋 最初の${this.INITIAL_DISPLAY_COUNT}件のみ表示`
+            : `📋 すべて表示 (残り${totalCount - displayedCount}件)`;
+        
+        return `
+            <div class="show-more-container">
+                <button class="show-more-btn">
+                    ${buttonText}
+                </button>
             </div>
         `;
     }

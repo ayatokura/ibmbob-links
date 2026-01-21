@@ -101,13 +101,12 @@
     opacity: 1;
 }
 
-/* 高関連度の記事を強調（Qiitaグリーントーン） */
+/* 高関連度の記事を強調（控えめなグリーンアクセント） */
 .article-card[data-relevance="10"],
 .article-card[data-relevance="9"],
 .article-card[data-relevance="8"] {
-    border: 2px solid #55b848;
-    background: linear-gradient(135deg, #f0fdf4 0%, #f7fef9 100%);
-    box-shadow: 0 2px 8px rgba(85, 184, 72, 0.15);
+    border: 1px solid #c7e9c0;
+    background: #ffffff;
 }
 
 .article-card[data-relevance="10"]::before,
@@ -120,8 +119,8 @@
 .article-card[data-relevance="10"]:hover,
 .article-card[data-relevance="9"]:hover,
 .article-card[data-relevance="8"]:hover {
-    background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf7 100%);
-    box-shadow: 0 4px 16px rgba(85, 184, 72, 0.25);
+    background: #fafdfb;
+    box-shadow: 0 4px 12px rgba(85, 184, 72, 0.12);
     border-color: #55b848;
 }
 
@@ -146,9 +145,9 @@
 }
 
 .relevance-badge.high {
-    background: #dcfce7;
-    border: 1px solid #55b848;
-    color: #166534;
+    background: #f0fdf4;
+    border: 1px solid #86d175;
+    color: #2d7a1f;
     font-weight: 600;
 }
 
@@ -174,13 +173,6 @@
 
 .article-title a:hover {
     color: #0f62fe;
-}
-
-/* 高関連記事のタイトルリンク */
-.article-card[data-relevance="10"] .article-title a:hover,
-.article-card[data-relevance="9"] .article-title a:hover,
-.article-card[data-relevance="8"] .article-title a:hover {
-    color: #55b848;
 }
 
 /* 記事メタ情報 */
@@ -260,19 +252,6 @@
     color: #0043ce;
     text-decoration: underline;
     transform: translateX(4px);
-}
-
-/* 高関連記事の「記事を読む」リンク */
-.article-card[data-relevance="10"] .read-more,
-.article-card[data-relevance="9"] .read-more,
-.article-card[data-relevance="8"] .read-more {
-    color: #55b848;
-}
-
-.article-card[data-relevance="10"] .read-more:hover,
-.article-card[data-relevance="9"] .read-more:hover,
-.article-card[data-relevance="8"] .read-more:hover {
-    color: #3d8b2f;
 }
 
 /* ローディング状態 */

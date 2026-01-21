@@ -28,7 +28,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1100px;
             width: 100%;
         }
 
@@ -174,10 +174,17 @@
             position: relative;
         }
 
+        .search-box-wrapper {
+            display: flex;
+            gap: 8px;
+            align-items: stretch;
+        }
+
         .search-input {
-            width: 100%;
+            flex: 1;
+            min-width: 300px;
             padding: 14px 20px;
-            font-size: 0.95rem;
+            font-size: 1rem;
             border: 2px solid #b8d4f1;
             border-radius: 12px;
             background: #ffffff;
@@ -191,6 +198,31 @@
             outline: none;
             border-color: #0f62fe;
             box-shadow: 0 4px 16px rgba(15, 98, 254, 0.2);
+        }
+
+        .web-search-btn {
+            background: #0f62fe;
+            border: none;
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'IBM Plex Sans', sans-serif;
+            box-shadow: 0 2px 8px rgba(15, 98, 254, 0.2);
+            white-space: nowrap;
+        }
+
+        .web-search-btn:hover {
+            background: #0043ce;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(15, 98, 254, 0.4);
+        }
+
+        .web-search-btn:active {
+            transform: translateY(0);
         }
 
         .search-input::placeholder {
@@ -248,12 +280,6 @@
             <p class="tagline">Your AI-Powered Development Partner / AI駆動の開発パートナー</p>
             <p class="disclaimer">⚠️ 非公式のリンク集です / Unofficial Resource Collection</p>
         </header>
-
-        <!-- Search Box -->
-        <div class="search-container">
-            <input type="text" id="search-input" class="search-input" placeholder="🔍 記事を検索... / Search articles...">
-            <div id="search-results-count" class="search-results-count"></div>
-        </div>
 
         <!-- Official Announcement / 公式発表 -->
         <section class="category">

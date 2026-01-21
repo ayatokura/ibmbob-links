@@ -28,12 +28,6 @@ class UIController {
             return;
         }
 
-        // 検索ボックスを取得
-        this.searchInput = document.getElementById('search-input');
-
-        // 検索ボックスを取得
-        this.searchInput = document.getElementById('search-input');
-
         // イベントリスナーを設定
         this._setupEventListeners();
 
@@ -58,13 +52,6 @@ class UIController {
                 this.loadArticles();
             }
         });
-
-        // 検索機能
-        if (this.searchInput) {
-            this.searchInput.addEventListener('input', (e) => {
-                this._handleSearch(e.target.value);
-            });
-        }
 
         // 「もっと見る」ボタン
         document.addEventListener('click', (e) => {
@@ -348,6 +335,64 @@ class UIController {
     }
 
     /**
+     * Web検索機能を設定
+     * @private
+     */
+    _setupWebSearch() {
+        const webSearchBtn = document.getElementById('web-search-btn');
+        const searchInput = document.getElementById('search-input');
+
+        if (!webSearchBtn || !searchInput) {
+            console.warn('Web検索ボタンまたは検索ボックスが見つかりません');
+            return;
+        }
+
+        // ボタンクリック
+        webSearchBtn.addEventListener('click', () => {
+            this._performWebSearch();
+        });
+
+        // Enterキー（Ctrl/Cmd + Enter）
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+                e.preventDefault();
+                this._performWebSearch();
+            }
+        });
+    }
+
+    /**
+     * Web検索を実行
+     * @private
+     */
+    _performWebSearch() {
+        const searchInput = document.getElementById('search-input');
+        if (!searchInput) return;
+
+        const query = searchInput.value.trim();
+        if (!query) {
+            alert('検索キーワードを入力してください');
+            return;
+        }
+
+        // Googleで「IBM Bob + キーワード」を検索
+        const searchQuery = `IBM Bob ${query}`;
+        const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
+        
+        // 新しいタブで開く
+        window.open(searchUrl, '_blank', 'noopener,noreferrer');
+        
+        // 検索ボックスをクリア（オプション）
+        // searchInput.value = '';
+        
+        // 検索結果カウントを非表示
+        const countElement = document.getElementById('search-results-count');
+        if (countElement) {
+            countElement.textContent = '';
+        }
+    }
+
+    /**
      * 折りたたみ機能を初期化
      * @private
      */
@@ -428,6 +473,11 @@ class UIController {
         if (!query.trim()) {
             // 検索クエリが空の場合、すべての記事を表示
             this._displayArticles(this.allArticles);
+            // 検索結果カウントをクリア
+            const countElement = document.getElementById('search-results-count');
+            if (countElement) {
+                countElement.textContent = '';
+            }
             return;
         }
 
@@ -461,7 +511,7 @@ class UIController {
                 </div>
                 <div class="no-results">
                     <p>🔍 「${this._escapeHtml(query)}」に一致する記事が見つかりませんでした</p>
-                    <p>別のキーワードで検索してみてください</p>
+                    <p>💡 ヒント: 「🌐 Googleで検索」ボタンでWeb全体から探せます</p>
                 </div>
             `;
             this._showCacheInfo();

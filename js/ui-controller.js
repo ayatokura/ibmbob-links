@@ -158,10 +158,13 @@ class UIController {
         const articlesHTML = articles.map(article => this._createArticleCard(article)).join('');
         
         this.articlesContainer.innerHTML = header + `
-            <div class="articles-grid">
+            <div class="articles-grid" id="articles-grid">
                 ${articlesHTML}
             </div>
         `;
+        
+        // 折りたたみ機能を初期化
+        this._initializeCollapse();
     }
 
     /**
@@ -175,9 +178,14 @@ class UIController {
                     <h3>Qiitaの記事 (${count}件)</h3>
                     <p class="cache-info" id="cache-info"></p>
                 </div>
-                <button class="refresh-articles-btn" title="記事を更新">
-                    🔄 更新
-                </button>
+                <div class="header-actions">
+                    <button class="collapse-toggle-btn" id="collapse-toggle" title="すべて折りたたむ/展開">
+                        📋 すべて折りたたむ
+                    </button>
+                    <button class="refresh-articles-btn" title="記事を更新">
+                        🔄 更新
+                    </button>
+                </div>
             </div>
         `;
     }
@@ -196,43 +204,46 @@ class UIController {
         const relevanceBadge = this._createRelevanceBadge(article.relevanceScore);
 
         return `
-            <article class="article-card" data-relevance="${article.relevanceScore}">
-                <div class="article-header">
-                    ${relevanceBadge}
-                    <h4 class="article-title">
-                        <a href="${article.url}" target="_blank" rel="noopener noreferrer">
+            <article class="article-card collapsible" data-relevance="${article.relevanceScore}">
+                <div class="article-card-header" role="button" tabindex="0" aria-expanded="false">
+                    <div class="article-header">
+                        ${relevanceBadge}
+                        <h4 class="article-title">
                             ${article.title}
-                        </a>
-                    </h4>
+                        </h4>
+                    </div>
+                    <span class="collapse-icon">▼</span>
                 </div>
                 
-                <div class="article-meta">
-                    <div class="author-info">
-                        <img src="${article.authorImage}"
-                             alt="${article.author}"
-                             class="author-avatar"
-                             loading="lazy">
-                        <a href="${article.authorUrl}"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="author-name">
-                            ${article.author}
-                        </a>
+                <div class="article-card-content">
+                    <div class="article-meta">
+                        <div class="author-info">
+                            <img src="${article.authorImage}"
+                                 alt="${article.author}"
+                                 class="author-avatar"
+                                 loading="lazy">
+                            <a href="${article.authorUrl}"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="author-name">
+                                ${article.author}
+                            </a>
+                        </div>
+                        <div class="article-stats">
+                            <span class="stat">📅 ${article.publishedDate}</span>
+                            <span class="stat">❤️ ${article.likesCount}</span>
+                        </div>
                     </div>
-                    <div class="article-stats">
-                        <span class="stat">📅 ${article.publishedDate}</span>
-                        <span class="stat">❤️ ${article.likesCount}</span>
-                    </div>
+                    
+                    ${tagsHTML ? `<div class="article-tags">${tagsHTML}</div>` : ''}
+                    
+                    <a href="${article.url}"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="read-more">
+                        記事を読む →
+                    </a>
                 </div>
-                
-                ${tagsHTML ? `<div class="article-tags">${tagsHTML}</div>` : ''}
-                
-                <a href="${article.url}"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="read-more">
-                    記事を読む →
-                </a>
             </article>
         `;
     }
@@ -280,6 +291,79 @@ class UIController {
             "'": '&#039;'
         };
         return String(text).replace(/[&<>"']/g, m => map[m]);
+    }
+
+    /**
+     * 折りたたみ機能を初期化
+     * @private
+     */
+    _initializeCollapse() {
+        const grid = document.getElementById('articles-grid');
+        const toggleBtn = document.getElementById('collapse-toggle');
+        
+        if (!grid || !toggleBtn) return;
+
+        let allCollapsed = false;
+
+        // 個別カードの折りたたみ
+        grid.addEventListener('click', (e) => {
+            const header = e.target.closest('.article-card-header');
+            if (!header) return;
+
+            const card = header.closest('.article-card');
+            const content = card.querySelector('.article-card-content');
+            const icon = header.querySelector('.collapse-icon');
+            const isExpanded = header.getAttribute('aria-expanded') === 'true';
+
+            if (isExpanded) {
+                content.style.maxHeight = '0';
+                header.setAttribute('aria-expanded', 'false');
+                icon.textContent = '▼';
+                card.classList.remove('expanded');
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                header.setAttribute('aria-expanded', 'true');
+                icon.textContent = '▲';
+                card.classList.add('expanded');
+            }
+        });
+
+        // キーボード対応
+        grid.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                const header = e.target.closest('.article-card-header');
+                if (header) {
+                    e.preventDefault();
+                    header.click();
+                }
+            }
+        });
+
+        // すべて折りたたむ/展開ボタン
+        toggleBtn.addEventListener('click', () => {
+            const cards = grid.querySelectorAll('.article-card');
+            
+            cards.forEach(card => {
+                const header = card.querySelector('.article-card-header');
+                const content = card.querySelector('.article-card-content');
+                const icon = header.querySelector('.collapse-icon');
+
+                if (allCollapsed) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    header.setAttribute('aria-expanded', 'true');
+                    icon.textContent = '▲';
+                    card.classList.add('expanded');
+                } else {
+                    content.style.maxHeight = '0';
+                    header.setAttribute('aria-expanded', 'false');
+                    icon.textContent = '▼';
+                    card.classList.remove('expanded');
+                }
+            });
+
+            allCollapsed = !allCollapsed;
+            toggleBtn.textContent = allCollapsed ? '📋 すべて展開' : '📋 すべて折りたたむ';
+        });
     }
 }
 
